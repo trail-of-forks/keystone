@@ -555,8 +555,8 @@ AsmParser::AsmParser(SourceMgr &SM, MCContext &Ctx, MCStreamer &Out,
   Lexer.setBuffer(SrcMgr.getMemoryBuffer(CurBuffer)->getBuffer());
 
   // Initialize the platform / file format parser.
-  PlatformParser.reset(createDarwinAsmParser());
   IsDarwin = true;
+  PlatformParser.reset(createELFAsmParser());
 #if 0
   switch (Ctx.getObjectFileInfo()->getObjectFileType()) {
   case MCObjectFileInfo::IsCOFF:
